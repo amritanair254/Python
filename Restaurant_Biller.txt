@@ -1,0 +1,75 @@
+================================RUN LOG OF RESTRAUNT BILLER=================================================
+
+****************Welcome to LULU's*****************
+Number of seats to reserve > 5
+Reserving table number 0
+Please have a seat after ordering :)
+
+Please enter the order number and number of items in new lines separated by '='
+Press enter to go to the next menu option
+*********************StarterS*********************
+1. Chicken Soup               	:	$2.0
+2. Mushroom Soup              	:	$2.5
+3. Caesar Salad               	:	$2.9
+4. Chicken Salad              	:	$3.3
+> 1=3
+> 3=1
+> 
+*******************Main Course********************
+1. Fish and Chips             	:	$6.5
+2. Chicken & Potatoes         	:	$6.25
+3. Farmhouse Pizza            	:	$4.85
+4. Thai Fried Rice            	:	$5.95
+5. Penne Pasta                	:	$5.95
+> 2=3
+> 3=1
+> 2=1
+> 
+********************Beverages*********************
+1. Mineral water              	:	$1.0
+2. Fresh orange juice         	:	$1.25
+3. Coke/Pepsi/Fanta           	:	$1.3
+4. Irish cream coffee         	:	$0.9
+> 1=5
+> 4=1
+> 
+**********************SnackS**********************
+1. Cheese Omlette             	:	$3.25
+2. Bytesize Hotdogs           	:	$2.25
+3. Chicken Sandwich           	:	$3.5
+4. Club Sandwich              	:	$3.25
+> 1=1
+> 3=1
+> 
+********************Desserts~*********************
+1. Vanilla Icecream           	:	$2.0
+2. Chocolate Cake             	:	$2.25
+3. Creamy Fruit Salad         	:	$2.25
+4. Cheese and Crackers        	:	$2.5
+> 1=1
+> 3=1
+> 4=3
+> 
+**************Your Total Bill Amount**************
+
+Dine In		Party of 5
+Table:0		Ticket:100
+
+Server: Amy-Bot
+2/28/2016	2:1:21
+--------------------------------------------------
+1	Vanilla Icecream           $2.0
+3	Cheese and Crackers        $7.5
+1	Cheese Omlette             $3.25
+1	Farmhouse Pizza            $4.85
+5	Mineral water              $5.0
+1	Chicken & Potatoes         $6.25
+1	Creamy Fruit Salad         $2.25
+1	Irish cream coffee         $0.9
+1	Caesar Salad               $2.9
+3	Chicken Soup               $6.0
+1	Chicken Sandwich           $3.5
+--------------------------------------------------
+             Sub Total : $63.15
+             Sales Tax : 1.49%
+           Check Total : $64.09
