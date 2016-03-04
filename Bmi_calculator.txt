@@ -1,0 +1,145 @@
+Name > Amy Nair
+
+BMI report of Amy Nair on 2016-03-04 17:21:47.748000
+Height in feet and inches or centimeters. Eg: '5ft 9in' or '182cm' > 5ft 2in
+Weight in pounds or kilograms. Eg: '135lbs' or '57kg' > 52kg
+Gender > f
+Age > 25
+Height:5ft 0in | Weight:114.608lbs
+
+Your BMI is 20.96
+Choose country of origin: US, UK, RU, JP, HK, SG, IN, Other > IN
+According to World Health Organization, the ideal BMI is 18.5 to 24.9. 
+Your ideal weight with respect to your height is 101.16-136.15lbs or 45.93-61.81kgs
+You are normal weight :)
+
+Your Basal Metabolic Rate is 1327.44 cal per day
+Types of lifestyle:
+1. 'sedentary': little or no exercise
+2. 'lightly active': light exercise/sports 1-3 days/week
+3. 'moderatetely active': moderate exercise/sports 3-5 days/week
+4. 'very active': hard exercise/sports 6-7 days a week
+5. 'extra active': very hard exercise/sports & physical job or 2x training
+Choose the number corresponding to your type of lifestyle > 3
+Your current lifestyle is moderatetely active.
+
+2057.53 calories is the total number of calories you need in order to maintain your current weight.
+To lose weight, take 857.53-1557.53 calories a day
+To gain weight, take 2557.53 calories a day to gain one pound per week.
+
+Do you want to find out your body fat percentage/ratios/indices? 'y' or 'n' > y
+Wrist measurement at the thickest point in inches or centimeters > 9in
+Waist measurement at the naval in inches or centimeters > 27in
+Chest measurement in inches > 34in
+Hip measurement at the fullest point in inches or centimeters > 34in
+Forearm measurement at the thickest point in inches or centimeters > 15in
+Chest:34.0in| Waist:27.0in| Hip:34.0in| Forearm:15.0in| Wrist:9.0in
+
+
+Your Lean Body Mass is 89.55lbs or 40.66kgs. If you want to gain muscle, you need to take 89-94grams of protein daily
+Your Body Fat Weight is 25.058lbs or 11.38kgs and your Body Fat Percentage is 21.86%
+You have a fit body. An athletic body has 20% body fat. Minimum threshold value of body fat is 14%. You can diet and exercise to lose 1.86% body fat, which is 2.13lbs or 0.97kgs.
+Keep realistic weight-loss goals!
+
+The Body Adiposity Index (BAI) is the amount of body fat in humans. The BAI is calculated using size of the hips and height.
+Your Body Adipose Index is 25.7
+According to your BAI,you are normal
+
+Waist to height ratio is a much better measure of the risk of heart attack, stroke or death than the more widely used body mass index. It is highly correlated to abdominal obesity.
+Your waist to height ratio is 0.435
+You are healthy. You have a similar physic to a College Swimmer 0.4240 or Ashley Graham (plus sized model) 0.4354
+
+The Waist to Hip(WHR) ratio has been used as an indicator or measure of health, and the risk of developing serious health conditions. WHR is more efficient measure in older people (>75yrs) than BMI.
+Your waist to hip ratio is 0.794
+According to your WHR,you are normal
+
+Enter email if you want to us to maintain your record and send you your report via email > amynair254@gmail.com
+Do you want to check your history of measurements? (Doesn't apply to new users) > yes
+
+Name,Date/Time,Age,Gender,Height,Weight,BMI,Basal Metabolic Rate,Calorie Restriction,Wrist,Forearm,Chest,Waist,Hip,Lean Body Mass,Body Fat Percentage,Body Adiposity Index,Waist to Height ratio,Waist to Hip ratio,Pignet Index,Email Adress
+Amy Nair,2016-03-04 17:21:47.748000,25,female,5ft 0in,114.608lbs,20.96,1327.44cal/day,2057.53cal,9.0in,15.0in,34.0in,27.0in,34.0in,89.55lbs,21.86%,25.7,0.435,0.794,,amynair254@gmail.com
+
+
+>>> ================================ RESTART ================================
+>>> 
+Name > Sarada Nair
+
+BMI report of Sarada Nair on 2016-03-04 17:58:28.950000
+Height in feet and inches or centimeters. Eg: '5ft 9in' or '182cm' > 5ft 1in
+Weight in pounds or kilograms. Eg: '135lbs' or '57kg' > 73kg
+Gender > f
+Age > 68
+Height:5ft 1in | Weight:160.892lbs
+
+Your BMI is 30.4
+Choose country of origin: US, UK, RU, JP, HK, SG, IN, Other > IN
+According to World Health Organization, the ideal BMI is 18.5 to 24.9. 
+Your ideal weight with respect to your height is 97.92-131.8lbs or 44.46-59.84kgs
+You are moderately obese
+
+Do you want some tips to reduce weight? > 
+* Great! First step is to slowly taper the sugar and processed food intake and improve your stamina by taking long walks.
+* Choose healthy meal options, like dark chocolate instead of candy, sugar-free options containing stevia and fruit if you have a sweet-tooth.
+* Keep a food journal if you are serious about losing weight. Note down everything you ate that day.
+* Have your friends/parents support you in this ourney and ask them to switch to healthier options too!
+* After you build your stamina, take up fun workout routines like dancing, swimming, beginner's zumba, etc.
+* If aerobics is not your thing, try weight lifting, even if you are a chick. It burns fat and builds muscle. And don't worry, you can always slow down if you find yourself bulking up to much.
+* Stay positive. So what if you have some fudge in the pudge. You can lose it in no time! Stay motivated.
+* Drink a lot of water.
+* If you don't think you can survive without meat, switch to ketogenic diet. If you think you can't survive without carbs, switch to a balanced low calorie diet.
+
+Do you want to find out problems this causes? > 
+* You would experience a general fatigue and lack of stamina.
+* It makes you more likely to have conditions including heart disease and stroke, high blood pressure, Diabetes, some cancers, Gallbladder disease and gallstones, Osteoarthritis, Gout, breathing problems, such as sleep apnea (when a person stops breathing for short episodes during sleep) and asthma.
+* You should consult your physician to determine if you are suffering any of these conditions.
+
+Do you want to find out what causes this? > 
+* Behavioral factors like your eating habits and daily activity level. Many people develop their eating habits as children and have trouble refining them to maintain proper body weight as they age. As an adult, you may be inactive at your job and have less time for exercise, meal planning, and physical activity.
+* Stress, anxiety, and lack of sleep, can lead to weight gain. People who quit smoking often experience temporary weight gain. Women may also have trouble losing the weight they gain during pregnancy or gain additional weight during menopause.
+* Certain medications eg:birth control pills and antidepressants, can cause weight gain.
+* Genetic factors may control how your body stores energy.
+
+Your Basal Metabolic Rate is 1321.98 cal per day
+Types of lifestyle:
+1. 'sedentary': little or no exercise
+2. 'lightly active': light exercise/sports 1-3 days/week
+3. 'moderatetely active': moderate exercise/sports 3-5 days/week
+4. 'very active': hard exercise/sports 6-7 days a week
+5. 'extra active': very hard exercise/sports & physical job or 2x training
+Choose the number corresponding to your type of lifestyle > 2
+Your current lifestyle is lightly active.
+
+1817.72 calories is the total number of calories you need in order to maintain your current weight.
+To lose weight, take 617.72-1317.72 calories a day
+To gain weight, take 2317.72 calories a day to gain one pound per week.
+
+Do you want to find out your body fat percentage/ratios/indices? 'y' or 'n' > y
+Wrist measurement at the thickest point in inches or centimeters > 11in
+Waist measurement at the naval in inches or centimeters > 37in
+Chest measurement in inches > 36in
+Hip measurement at the fullest point in inches or centimeters > 34in
+Forearm measurement at the thickest point in inches or centimeters > 19in
+Chest:36.0in| Waist:37.0in| Hip:34.0in| Forearm:19.0in| Wrist:11.0in
+
+
+Your Lean Body Mass is 124.23lbs or 56.4kgs. If you want to gain muscle, you need to take 124-129grams of protein daily
+Your Body Fat Weight is 36.662lbs or 16.64kgs and your Body Fat Percentage is 22.79%
+You have a fit body. An athletic body has 20% body fat. Minimum threshold value of body fat is 14%. You can diet and exercise to lose 2.79% body fat, which is 4.49lbs or 2.04kgs.
+Keep realistic weight-loss goals!
+
+The Body Adiposity Index (BAI) is the amount of body fat in humans. The BAI is calculated using size of the hips and height.
+Your Body Adipose Index is 26.78
+According to your BAI,you are normal
+
+Waist to height ratio is a much better measure of the risk of heart attack, stroke or death than the more widely used body mass index. It is highly correlated to abdominal obesity.
+Your waist to height ratio is 0.607
+You are very morbidly obese
+
+The Waist to Hip(WHR) ratio has been used as an indicator or measure of health, and the risk of developing serious health conditions. WHR is more efficient measure in older people (>75yrs) than BMI.
+Your waist to hip ratio is 1.088
+According to your WHR,you are obese
+
+Enter email if you want to us to maintain your record and send you your report via email > sarinair@gmail.com
+Do you want to check your history of measurements? (Doesn't apply to new users) > yes
+Name,Date/Time,Age,Gender,Height,Weight,BMI,Basal Metabolic Rate,Calorie Restriction,Wrist,Forearm,Chest,Waist,Hip,Lean Body Mass,Body Fat Percentage,Body Adiposity Index,Waist to Height ratio,Waist to Hip ratio,Pignet Index,Email Adress
+Sarada Nair,2016-03-04 17:58:28.950000,68,female,5ft 1in,160.892lbs,30.4,1321.98cal/day,1817.72cal,11.0in,19.0in,36.0in,37.0in,34.0in,124.23lbs,22.79%,26.78,0.607,1.088,,sarinair@gmail.com
