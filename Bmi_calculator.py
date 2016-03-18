@@ -1,72 +1,74 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
 from datetime import datetime
-import re,math,os,smtplib
+import re,math,os,smtplib,sqlite3
+from prettytable import PrettyTable
 
-time=str(datetime.now())
+time=str(datetime.now())[:19]
 
 def bmi_func(weight,height):							#Calculates Body Mass Index
 	bmi = round(((weight*703.0) / ( height**2.0 ) ),2)
 	printer("\nYour BMI is "+str(bmi))
 	country=raw_input("Choose country of origin: US, UK, RU, JP, HK, SG, IN, Other > ")		#There are actually only 4 standards
-	
+
 	if country=="HK" :
 		printer("According to Hospital Authority of HongKong,the ideal BMI is 18.5 to 23. \nYour ideal weight with respect to your height is "+str(round((18.5*(height**2) /703),2))+"-"+str(round((23*(height**2) /703),2))+"lbs or "+str(lbs_to_kgs(18.5*(height**2) /703))+"-"+str(lbs_to_kgs(23*(height**2) /703))+"kgs\n")
-		if bmi<=18.5:	
+		if bmi<=18.5:
 			underweight()
-		elif bmi>18.5 and bmi<=23.0 : 
+		elif bmi>18.5 and bmi<=23.0 :
 			normal()
-		elif bmi>23.0 and bmi<=25.0 : 
+		elif bmi>23.0 and bmi<=25.0 :
 			overweight()
 		elif bmi>25.0 and bmi<=30.0 :
 			moderately_obese()
 		else:
 			severely_obese()
-			
+
 	elif country=="JP" :
 		printer("According to Japan Society for Study of Obesity(2000), the ideal BMI is 18.5 to 23. \nYour ideal weight with respect to your height is "+str(round((18.5*(height**2) /703),2))+"-"+str(round((23*(height**2) /703),2))+"lbs or "+str(lbs_to_kgs(18.5*(height**2) /703))+"-"+str(lbs_to_kgs(23*(height**2) /703))+"kgs")
-		if bmi<=18.5:	
+		if bmi<=18.5:
 			underweight()
-		elif bmi>18.5 and bmi<=25.0 : 
+		elif bmi>18.5 and bmi<=25.0 :
 			normal()
-		elif bmi>25.0 and bmi<=30.0 : 
+		elif bmi>25.0 and bmi<=30.0 :
 			overweight()
 		elif bmi>30.0 and bmi<=35.0 :
 			moderately_obese()
 		elif bmi>35.0 and bmi<=40.0 :
 			extremely_obese()
-		else: 
+		else:
 			morbidly_obese()
-	
+
 	elif country=="SG" :
 		printer("Singaporeans have higher proportion of body fat and increased risk for cardiovascular diseases and diabetes mellitus. The ideal BMI is 18.5 to 23. \nYour ideal weight with respect to your height is "+str(round((18.5*(height**2) /703),2))+"-"+str(round((23*(height**2) /703),2))+"lbs or "+str(lbs_to_kgs(18.5*(height**2) /703))+"-"+str(lbs_to_kgs(23*(height**2) /703))+"kgs")
-		if bmi<=18.5:	
+		if bmi<=18.5:
 			severe_underweight()
-		elif bmi>18.5 and bmi<=23.0 : 
+		elif bmi>18.5 and bmi<=23.0 :
 			normal()
-		elif bmi>23.0 and bmi<=27.0 : 
+		elif bmi>23.0 and bmi<=27.0 :
 			moderately_obese()
 		else:
 			severely_obese()
-			
+
 	else:
 		printer("According to World Health Organization, the ideal BMI is 18.5 to 24.9. \nYour ideal weight with respect to your height is "+str(round((18.5*(height**2) /703),2))+"-"+str(round((24.9*(height**2) /703),2))+"lbs or "+str(lbs_to_kgs(18.5*(height**2) /703))+"-"+str(lbs_to_kgs(24.9*(height**2) /703))+"kgs")
-		if bmi <= 16.0:				
+		if bmi <= 16.0:
 			severe_underweight()
-		elif bmi > 16.0 and bmi<=18.5:	
+		elif bmi > 16.0 and bmi<=18.5:
 			underweight()
-		elif bmi>18.5 and bmi<=25.0 : 
+		elif bmi>18.5 and bmi<=25.0 :
 			normal()
-		elif bmi>25.0 and bmi<=30.0 : 
+		elif bmi>25.0 and bmi<=30.0 :
 			overweight()
 		elif bmi>30.0 and bmi<=35.0 :
 			moderately_obese()
-		elif bmi>35.0 and bmi<=40.0 : 
+		elif bmi>35.0 and bmi<=40.0 :
 			extremely_obese()
 		else:
 			morbidly_obese()
 	return bmi
 
-			
+
 def body_fat(weight,sex,wrist,waist,hip,forearm):		#Calculate body fat percentage
 	if sex=="female":
 		lbm= round(((weight*0.732) + 8.987 + (wrist/3.140) - (waist*0.157) - (hip*0.249) + (forearm*0.434)),2)
@@ -78,7 +80,7 @@ def body_fat(weight,sex,wrist,waist,hip,forearm):		#Calculate body fat percentag
 		elif bf>=20 and bf<24: printer("You have a fit body. An athletic body has 20% body fat. Minimum threshold value of body fat is 14%. You can diet and exercise to lose "+str(bf-20)+"% body fat, which is "+str(round(((bf-20)*weight/100),2))+"lbs or "+str(lbs_to_kgs((bf-20)*weight/100))+"kgs.\nKeep realistic weight-loss goals!")
 		elif bf>=24 and bf<32: printer("You have an acceptable body. An athletic body has 20% body fat You can diet and exercise to lose "+str(bf-20)+"% body fat, which is "+str(round(((bf-20)*weight/100),2))+"lbs or "+str(lbs_to_kgs((bf-20)*weight/100))+"kgs.\nKeep realistic weight-loss goals!")
 		else: printer("You have a obese body. An athletic body has 20% body fat. You must diet and exercise to lose "+str(bf-20)+"% body fat, which is "+str(round(((bf-20)*weight/100),2))+"lbs or "+str(lbs_to_kgs((bf-20)*weight/100))+"kgs.\nKeep realistic weight-loss goals!")
-				
+
 	else:
 		lbm= round(((weight*1.082) + 94.42 - (waist*4.15)),2)
 		bf=round(((weight-lbm)*100/weight),2)
@@ -130,7 +132,7 @@ def body_adipose_index(height,hip,age,sex):		#Calculate body fat index
 			else: printer("According to your BAI,you are obese")
 	return bai
 
- 
+
 def waist_to_hip_ratio(waist, hip, sex):
 	printer("\nThe Waist to Hip(WHR) ratio has been used as an indicator or measure of health, and the risk of developing serious health conditions. WHR is more efficient measure in older people (>75yrs) than BMI.")
 	whr=round(float(waist)/hip,3)
@@ -144,8 +146,8 @@ def waist_to_hip_ratio(waist, hip, sex):
 		elif whr>=0.90 and whr<=0.99: printer("According to your WHR,you are overweight")
 		elif whr>=1.00: printer("According to your WHR,you are obese")
 	return whr
-	
-	
+
+
 def waist_to_height_ratio(waist, height, sex):
 	printer("\nWaist to height ratio is a much better measure of the risk of heart attack, stroke or death than the more widely used body mass index. It is highly correlated to abdominal obesity.")
 	wht=round(float(waist)/height,3)
@@ -166,7 +168,7 @@ def waist_to_height_ratio(waist, height, sex):
 		elif wht>=0.63: printer("You are very morbidly obese")
 	return wht
 
- 
+
 def pignet_index(chest,weight,height):			#Only for men
 	printer("\nPignet Index or Body Build Index is an index used for evaluation of body build. It is a function of height, weight and chest sizes.")
 	pig=round(((height*2.54)-(lbs_to_kgs(weight)+chest*2.54)),2)
@@ -179,7 +181,7 @@ def pignet_index(chest,weight,height):			#Only for men
 	if pig<31 and pig<36: printer("You have very weak pignet index")
 	else: printer("You have poor pignet index")
 	return pig
-	
+
 def basal_metabolic_rate(sex,age,weight,height):		#to find out calorie needs
 	if sex=="female":
 		bmr = round((655.0+(4.35*weight)+(4.7*height)-(4.7*age)),2)
@@ -206,7 +208,7 @@ def calorie_needs(bmr):									#Harris Benedict Formula
 	else:
 		printer("To lose weight, take "+str(cal-1800)+"-"+str(cal-500)+" calories a day\nTo gain weight, take "+str(cal+500)+" calories a day to gain one pound per week.")
 	return cal
-	
+
 def lbs_to_kgs(weight):				#For conversion from pounds to kilos used in above functions
 	return round((weight*0.454),2)
 
@@ -219,7 +221,7 @@ def sendmail(rxr):					#File written in printer() is copied as email body and se
 	prt = open("bmi.txt")
 	email_body = prt.read()
 	sender="bmi@gmail.com"
-	receivers=rxr  
+	receivers=rxr
 	message="""Subject: Your BMI report
 Dear user,\n"""+email_body
 	try:
@@ -227,16 +229,21 @@ Dear user,\n"""+email_body
 		smtpObj.sendmail(sender, receivers, message)
 	except smtplib.SMTPException:
 		print "Error: unable to send email to user. Try ordering again"
-	
 
-def maintain_record():				#Maintains an informal record. The next function is more useful
-	rec = open("bmi_record.txt",'a')
-	prt = open("bmi.txt")
-	for line in prt:
-		rec.write(line)
-	rec.write("=======================================")
-	rec.close()
-	prt.close()
+
+def maintain_record(name,age,sex,height,weight,bmi,bmr,cal,wrist,forearm,chest,waist,hip,lbm,bf,bai,wht,whr,pig,rxr):				#Maintains an informal record. The next function is more useful
+    if os.path.isfile("bmi_db.db"):
+        conn = sqlite3.connect('bmi_db.db')
+        c=conn.cursor()
+    else:
+        conn = sqlite3.connect('bmi_db.db')
+        c=conn.cursor()
+        c.execute('''CREATE TABLE bmi(Name text,Date text,Age int,Gender text,Height real,Weight real,BMI real,Basal_Metabolic_Rate real,Calorie_Restriction real,Wrist real,Forearm real,Chest real,Waist real,Hip real,Lean_Body_Mass real,Body_Fat_Percentage real,Body_Adiposity_Index real,Waist_to_Height_ratio real,Waist_to_Hip_ratio real,Pignet_Index real,Email text)''')
+    tempor=(name,time,age,sex,height,weight,bmi,bmr,cal,wrist,forearm,chest,waist,hip,lbm,bf,bai,wht,whr,pig,rxr)
+    c.execute('INSERT INTO bmi VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',tempor)
+    conn.commit()
+    conn.close()
+
 
 def maintain_record2(name,age,sex,height,weight,bmi,bmr,cal,wrist,forearm,chest,waist,hip,lbm,bf,bai,wht,whr,pig,rxr):		#Maintains db of everybody's measurements
 	if os.path.isfile("bmi_db.cvs"):
@@ -244,14 +251,29 @@ def maintain_record2(name,age,sex,height,weight,bmi,bmr,cal,wrist,forearm,chest,
 	else:
 		rec = open("bmi_db.cvs",'a')
 		rec.write("Name,Date/Time,Age,Gender,Height,Weight,BMI,Basal Metabolic Rate,Calorie Restriction,Wrist,Forearm,Chest,Waist,Hip,Lean Body Mass,Body Fat Percentage,Body Adiposity Index,Waist to Height ratio,Waist to Hip ratio,Pignet Index,Email Adress\n")
-		
+
 	rec.write(str(name)+","+time+","+str(age)+","+str(sex)+","+str(int(height/12))+"ft "+str(int(height%2))+"in,"+str(weight)+"lbs,"+str(bmi)+","+str(bmr)+"cal/day,"+str(cal)+"cal,"+str(wrist)+"in,"+str(forearm)+"in,"+str(chest)+"in,"+str(waist)+"in,"+str(hip)+"in,"+str(lbm)+"lbs,"+str(bf)+"%,"+str(bai)+","+str(wht)+","+str(whr)+","+str(pig)+","+str(rxr)+"\n")
 	rec.close()
 
-		
-		
-	
-def past_records(rxr):			#if user wants to print out his past records from db
+
+def past_records(rxr,name):
+    conn = sqlite3.connect('bmi_db.db')
+    cursor = conn.execute("SELECT * from bmi")
+    t = PrettyTable(['Date','Height in.','Weight lb.','Wrist in.','Forearm in.','Chest in.','Waist in.','Hip in.','BMI'])
+    for row in cursor:
+        if row[0] == name:
+            t.add_row([row[1],row[4],row[5],row[9],row[10],row[11],row[12],row[13],row[6]])
+    print t
+    print "\n"
+    cursor = conn.execute("SELECT * from bmi")
+    y = PrettyTable(['Date','Metabolic Rate','Lean Mass lb.','Body Fat %','Body Fat Ind.','Waist/Height','Waist/Hip','Pignet Ind.'])
+    for row in cursor:
+        if row[0] == name:
+            y.add_row([row[1],row[7],row[14],row[15],row[16],row[17],row[18],row[19]])
+    print y
+    conn.close()
+
+def past_records2(rxr):			#if user wants to print out his past records from db
 	print next(open('bmi_db.cvs'))
 	rec = open("bmi_db.cvs")
 	patt="(.*)"+rxr+"(.*)"
@@ -259,16 +281,16 @@ def past_records(rxr):			#if user wants to print out his past records from db
 		if re.match(patt, line):
 			print line
 	rec.close()
-	
+
 #below functions are called by bmi()
-def severe_underweight():			
+def severe_underweight():
 	printer("You are severely underweight\nYou should consult your physician to determine if you should gain weight.")
 	result1=raw_input("\nDo you want to find out problems this causes? > ")
 	if result1 !="n":
 		printer("* Inhibited growth and development, especially for children and teens.\n* Fragile bones, deficiency in vitamin D and calcium along with low body weight can lead to osteoporosis.\n* Weakened immune system, your body cannot store energy and may also have difficulty fighting and bouncing back from illness.\n* Anemia caused by iron, folate and vitamin B12 deficiency, resulting in dizziness, fatigue and headaches.\n* Fertility issues. In women, low body weight can lead to irregular or lack of periods and infertility.\n* Hair loss, dry thin skin and teeth health issues.")
 		result2=raw_input("\nDo you want to find out what the causes are? > ")
 	if result2 !="n":
-		printer("* Genetics - runs in your family, it's likely that you were born with a higher-than-usual metabolism.\n* High physical activity burns more calories.\n* Illness can affect your appetite, as well as your body’s ability to use and store food. \n* Certain prescription medicines and treatments can cause nausea and weight loss.\n* Psychological Issues like stress, depression, anorexia, etc can disrupt healthy eating habits.")
+		printer("* Genetics - runs in your family, it's likely that you were born with a higher-than-usual metabolism.\n* High physical activity burns more calories.\n* Illness can affect your appetite, as well as your body's ability to use and store food. \n* Certain prescription medicines and treatments can cause nausea and weight loss.\n* Psychological Issues like stress, depression, anorexia, etc can disrupt healthy eating habits.")
 		result3=raw_input("\nDo you want to find out about treatment? > ")
 	if result3!="n":
 		printer("* Add healthy calories without radically changing your diet eg: nut or seed toppings, cheese, healthy side dishes, fruit or whole-grain wheat toast.\n* Go nutrient dense. High-protein meats, which can help you to build muscle and nutritious carbohydrates, such as brown rice and other whole grains. \n* Snack away on protein and healthy carbohydrates.eg: trail mix, protein bars or drinks, and crackers with hummus or peanut butter. \n* If you have poor appetite, eat mini-meals throughout the day to increase your calorie intake.\n* Bulk up - strength training, such as weight-lifting or yoga, can help you gain weight by building muscle. ")
@@ -277,20 +299,20 @@ def underweight():
 	printer("You are underweight.")
 	result1=raw_input("\nDo you want to find out problems this causes? > ")
 	if result1 !="n":
-		printer("* If you happen to lose more weight due to illness, stres or habits like smoking and poor diet, you may get:\n* Anemia, viz caused by iron, folate and vitamin B12 deficiency, resulting in dizziness, fatigue and headaches.\n* Fertility issues. In women, low body weight can lead to irregular or lack of periods and infertility.\n* Hair loss, dry thin skin and teeth health issues.")
+		printer("* If you happen to lose more weight due to illness, stress or habits like smoking and poor diet, you may get:\n* Anemia, viz caused by iron, folate and vitamin B12 deficiency, resulting in dizziness, fatigue and headaches.\n* Fertility issues. In women, low body weight can lead to irregular or lack of periods and infertility.\n* Hair loss, dry thin skin and teeth health issues.")
 	result2=raw_input("\nDo you want to find out what the causes are? > ")
 	if result2 !="n":
 		printer("* Genetics - runs in your family, it's likely that you were born with a higher-than-usual metabolism.\n* High physical activity burns more calories.")
 	result3=raw_input("\nDo you want to find out how to gain weight? > ")
 	if result3!="n":
 		printer("* Continue your regular balanced diet or switch over to one if you don't eat regularly.\n* Bulk up - strength training, such as weight-lifting or yoga, can help you gain muscle.")
-	
+
 def normal():
 		printer("You are normal weight :)")
 
 
 def overweight():
-	printer("You are overweight")	
+	printer("You are overweight")
 	result=raw_input("\nDo you want some tips to reduce weight? > ")
 	if result!="n":
 		printer("* So what if you have some fudge in the pudge. You're just working out and eating clean to become the best version of you(not that you already aren't)\n* First step is to slowly taper the sugar and processed food intake and improve your stamina by taking long walks.\n* Choose healthy meal options, like dark chocolate instead of candy, sugar-free options containing stevia and fruit if you have a sweet-tooth.\n* After you build your stamina, take up fun workout routines like dancing, swimming, beginner's zumba, etc.\n* If aerobics is not your thing, try weight lifting, even if you are a chick. It burns fat and builds muscle. And don't worry, you can always slow down if you find yourself bulking up to much.")
@@ -298,9 +320,9 @@ def overweight():
 	if result1!="n":
 		printer("* If your BMI is above 32.5, you may experience a general fatigue and lack of stamina. Being a little overweight is not unhealthy!")
 
-		
-		
-def moderately_obese():	
+
+
+def moderately_obese():
 	printer("You are moderately obese")
 	result=raw_input("\nDo you want some tips to reduce weight? > ")
 	if result!="n":
@@ -311,8 +333,8 @@ def moderately_obese():
 	result2=raw_input("\nDo you want to find out what causes this? > ")
 	if result2 !="n":
 		printer("* Behavioral factors like your eating habits and daily activity level. Many people develop their eating habits as children and have trouble refining them to maintain proper body weight as they age. As an adult, you may be inactive at your job and have less time for exercise, meal planning, and physical activity.\n* Stress, anxiety, and lack of sleep, can lead to weight gain. People who quit smoking often experience temporary weight gain. Women may also have trouble losing the weight they gain during pregnancy or gain additional weight during menopause.\n* Certain medications eg:birth control pills and antidepressants, can cause weight gain.\n* Genetic factors may control how your body stores energy.")
-			
-			
+
+
 def extremely_obese():
 	printer("You are extremely obese")
 	result=raw_input("\nDo you want some tips to reduce weight? > ")
@@ -337,7 +359,7 @@ def morbidly_obese():
 	result2=raw_input("\nDo you want to find out what causes this? > ")
 	if result2 !="n":
 		printer("* Behavioral factors like your eating habits and daily activity level. Many people develop their eating habits as children and have trouble refining them to maintain proper body weight as they age. As an adult, you may be inactive at your job and have less time for exercise, meal planning, and physical activity.\n* Stress, anxiety, and lack of sleep, can lead to weight gain. People who quit smoking often experience temporary weight gain. Women may also have trouble losing the weight they gain during pregnancy or gain additional weight during menopause.\n* Certain medications eg:birth control pills and antidepressants, can cause weight gain.\n* Genetic factors may control how your body stores energy.")
-		
+
 
 #This is where program starts
 if os.path.isfile("bmi.txt") :
@@ -358,11 +380,11 @@ else:
 	weight = float(weight.split('kg')[0])*2.204		#everything in pounds
 sex=raw_input("Gender > ")
 if sex=="male" or sex=="Male" or sex=="M" or sex=="m":
-	sex="male"	
+	sex="male"
 else:
 	sex="female"
 age=int(raw_input("Age > "))
-printer("Height:"+str(int(height/12))+"ft "+str(int(height%2))+"in | Weight:"+str(weight)+"lbs")
+printer("Height:"+str(int(height/12))+"ft "+str(int(height%12))+"in | Weight:"+str(weight)+"lbs")
 
 
 bmi=bmi_func(weight,height)
@@ -414,10 +436,10 @@ else:
 
 rxr=raw_input("\nEnter email if you want to us to maintain your record and send you your report via email > ")
 if rxr!='':
-	maintain_record()
-	maintain_record2(name,age,sex,height,weight,bmi,bmr,cal,wrist,forearm,chest,waist,hip,lbm,bf,bai,wht,whr,pig,rxr)
+	maintain_record(name,age,sex,height,weight,bmi,bmr,cal,wrist,forearm,chest,waist,hip,lbm,bf,bai,wht,whr,pig,rxr)
+	#maintain_record2(name,age,sex,height,weight,bmi,bmr,cal,wrist,forearm,chest,waist,hip,lbm,bf,bai,wht,whr,pig,rxr)
 	history=raw_input("Do you want to check your history of measurements? (Doesn't apply to new users) > ")
 	if history!="n" :
-		past_records(rxr)
-	sendmail(rxr)
-	
+		past_records(rxr,name)
+	#sendmail(rxr)
+
