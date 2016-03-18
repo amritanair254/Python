@@ -1,0 +1,14 @@
+
+------
+Version 2.0   20160318 
+
+* Supports an SQL database. All records saved in db and retrieved from db
+* Segregated into modules
+* Made it into an executable
+* Corrected typos in content and supports utf chars
+
+
+------
+Version 1.0   20160304 
+
+* Original release
