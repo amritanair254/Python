@@ -7,7 +7,7 @@ def main():
     col2=""
     col3=""
     col4=""
-    (options, args) = getopt.getopt(sys.argv[1:], "c1:c2:c3,c4:", ["col1=","col2=","col3=","col4="])
+    (options, args) = getopt.getopt(sys.argv[1:], "c1:c2:c3:c4:", ["col1=","col2=","col3=","col4="])
     for (name, value) in options:
         if name in ("--col1","-c1"):
             col1=value
@@ -24,7 +24,7 @@ def main():
     c=conn.cursor()
     c.execute('''CREATE TABLE rando(id TEXT)''')
     for i in range(1,limit):
-        c.extecute('INSERT INTO rando (id) VALUES(?)',i)
+        c.execute('INSERT INTO rando (id) VALUES(?)',str(i))
     if len(col1)>0:
         colz(col1,c)
     if len(col2)>0:
@@ -36,24 +36,15 @@ def main():
 
 
 def colz(col,c):
-    if col=="name":
-        obj=open("names.txt")
-        c.execute('''ALTER TABLE rando ADD COLUMN Name TEXT''')
+    if col!="":
+        obj=open(col+".txt")
+        t=(col,)
+        c.execute('ALTER TABLE rando ADD COLUMN ? text',str(col))
         id=1
         for line in obj:
             if id<=limit:
-                temp=(line,id)
-                c.execute('UPDATE rando SET Name=? WHERE id=?',temp)
-                id=id+1
-
-    elif col=="email":
-        obj=open("email.txt")
-        c.execute('''ALTER TABLE rando ADD COLUMN Email TEXT''')
-        id=1
-        for line in obj:
-            if id<=limit:
-                temp=(line,id)
-                c.execute('UPDATE rando SET Email=? WHERE id=?',temp)
+                temp=(col,line,id)
+                c.execute('UPDATE rando SET ?=? WHERE id=?',temp)
                 id=id+1
 
 
