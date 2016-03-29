@@ -1,6 +1,6 @@
 # Python branch
 Scripts developed in python
-
+<br>
 <h2>Restaurant_Biller</h2>
 This is an automated Ordering and Billing System. This program allows user to :
 <ul><li>Select menu items from all avaialable options</li>
@@ -8,7 +8,7 @@ This is an automated Ordering and Billing System. This program allows user to :
 <li>Saves the bill to be physically printed out</li>
 <li>Sends the order to the kitchen via mail</li>
 <li>Maintains a record of all orders placed for official purpose</li></ul>
-<br><br><br>
+<br>
 <h2>BMI_calculator</h2>
 <ul><li>BMI calculator calculates user's:
 <ol><li>BMI, according to country of origin</li>
@@ -24,7 +24,7 @@ This is an automated Ordering and Billing System. This program allows user to :
 <li>The report is printed on screen on request </li>
 <li>Full report can be sent to user via mail.</li>
 <li>If user requires his historical values which is saved in DB along with other user's values, program will fetch history only for current user.</li></ul>
-<br><br><br>
+<br>
 <h2>Random_data_gen</h2>
 <ul><li>Generates random dummy data from lists defined in files, like names contained in name.txt, emails contained in emails.txt</li>
 <li>This randomly generated data is stored in an sql database.</li>
