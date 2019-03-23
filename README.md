@@ -9,7 +9,7 @@ This is an automated Ordering and Billing System. This program allows user to :
 <li>Sends the order to the kitchen via mail</li>
 <li>Maintains a record of all orders placed for official purpose</li></ul>
 <br>
-<h2>BMI_calculator</h2>
+<h2>Wellness_calculator</h2>
 <ul><li>BMI calculator calculates user's:
 <ol><li>BMI, according to country of origin</li>
 <li>Basal Metabolic Rate, which results in calculation of Daily Calorie Needs to lose/gain/maintain weight</li>
